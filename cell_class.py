@@ -57,5 +57,4 @@ class Cell:
             if cell.colour != (0, 0, 0):
                 self.colour = cell.colour
             else:
-                self.colour = (random.randint(0, 255), random.randint(0, 255),
-                               random.randint(0, 255))
+                self.colour = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))

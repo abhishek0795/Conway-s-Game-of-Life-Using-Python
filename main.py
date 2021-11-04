@@ -118,54 +118,10 @@ def click_cell(position):
 
 def make_buttons():
     buttons = []
-    buttons.append(
-        Button(window,
-               WIDTH // 2 - 50,
-               50,
-               100,
-               30,
-               text='RUN',
-               colour=(28, 111, 51),
-               hover_colour=(48, 131, 81),
-               bold_text=True,
-               function=run_game,
-               state='setting'))
-    buttons.append(
-        Button(window,
-               WIDTH // 2 - 50,
-               50,
-               100,
-               30,
-               text='PAUSE',
-               colour=(18, 104, 135),
-               hover_colour=(51, 168, 212),
-               bold_text=True,
-               function=pause_game,
-               state='running'))
-    buttons.append(
-        Button(window,
-               WIDTH // 4 - 50,
-               50,
-               100,
-               30,
-               text='RESET',
-               colour=(117, 14, 14),
-               hover_colour=(217, 54, 54),
-               bold_text=True,
-               function=reset_grid,
-               state='paused'))
-    buttons.append(
-        Button(window,
-               WIDTH // 1.25 - 50,
-               50,
-               100,
-               30,
-               text='RESUME',
-               colour=(28, 111, 51),
-               hover_colour=(48, 131, 81),
-               bold_text=True,
-               function=run_game,
-               state='paused'))
+    buttons.append(Button(window, WIDTH // 2 - 50, 50, 100, 30, text='RUN', colour=(28, 111, 51), hover_colour=(48, 131, 81), bold_text=True, function=run_game, state='setting'))
+    buttons.append(Button(window, WIDTH // 2 - 50, 50, 100, 30, text='PAUSE', colour=(18, 104, 135), hover_colour=(51, 168, 212), bold_text=True, function=pause_game, state='running'))
+    buttons.append(Button(window, WIDTH // 4 - 50, 50, 100, 30, text='RESET', colour=(117, 14, 14), hover_colour=(217, 54, 54), bold_text=True, function=reset_grid, state='paused'))
+    buttons.append(Button(window, WIDTH // 1.25 - 50, 50, 100, 30, text='RESUME', colour=(28, 111, 51), hover_colour=(48, 131, 81), bold_text=True, function=run_game, state='paused'))
 
     return buttons
 

@@ -4,25 +4,7 @@ vec = pygame.math.Vector2
 
 
 class Button:
-    def __init__(self,
-                 surface,
-                 x,
-                 y,
-                 width,
-                 height,
-                 state='',
-                 id='',
-                 function=0,
-                 colour=(255, 255, 255),
-                 hover_colour=(255, 255, 255),
-                 border=True,
-                 border_width=2,
-                 border_colour=(0, 0, 0),
-                 text='',
-                 font_name='arial',
-                 text_size=20,
-                 text_colour=(0, 0, 0),
-                 bold_text=False):
+    def __init__(self, surface, x, y, width, height, state='', id='', function=0, colour=(255, 255, 255), hover_colour=(255, 255, 255), border=True, border_width=2, border_colour=(0, 0, 0), text='', font_name='arial', text_size=20, text_colour=(0, 0, 0), bold_text=False):
         self.type = 'button'
         self.x = x
         self.y = y
@@ -67,17 +49,9 @@ class Button:
             if self.border:
                 self.image.fill(self.border_colour)
                 if self.hovered:
-                    pygame.draw.rect(
-                        self.image, self.hover_colour,
-                        (self.border_width, self.border_width, self.width -
-                         (self.border_width * 2), self.height -
-                         (self.border_width * 2)))
+                    pygame.draw.rect(self.image, self.hover_colour, (self.border_width, self.border_width, self.width - (self.border_width * 2), self.height - (self.border_width * 2)))
                 else:
-                    pygame.draw.rect(
-                        self.image, self.colour,
-                        (self.border_width, self.border_width, self.width -
-                         (self.border_width * 2), self.height -
-                         (self.border_width * 2)))
+                    pygame.draw.rect(self.image, self.colour, (self.border_width, self.border_width, self.width - (self.border_width * 2), self.height - (self.border_width * 2)))
 
             else:
                 self.image.fill(self.colour)
@@ -91,22 +65,17 @@ class Button:
             self.function()
 
     def show_text(self):
-        font = pygame.font.SysFont(self.font_name,
-                                   self.text_size,
-                                   bold=self.bold_text)
+        font = pygame.font.SysFont(self.font_name, self.text_size, bold=self.bold_text)
         text = font.render(self.text, False, self.text_colour)
         size = text.get_size()
-        x, y = self.width // 2 - (size[0] // 2), self.height // 2 - (size[1] //
-                                                                     2)
+        x, y = self.width // 2 - (size[0] // 2), self.height // 2 - (size[1] // 2)
         position = vec(x, y)
         self.image.blit(text, position)
 
     def mouse_hovering(self, position):
         if self.showing:
-            if position[0] > self.position[0] and position[
-                    0] < self.position[0] + self.width:
-                if position[1] > self.position[1] and position[
-                        1] < self.position[1] + self.height:
+            if position[0] > self.position[0] and position[0] < self.position[0] + self.width:
+                if position[1] > self.position[1] and position[1] < self.position[1] + self.height:
                     return True
                 else:
                     return False

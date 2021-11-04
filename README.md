@@ -17,10 +17,9 @@ The next state is created by applying the above rules simultaneously to every ce
 Example :
 
 <img src="Example.jpg" alt="Example">
-
+```
 Input: board = [[0,0,0,1],[1,0,1,1],[0,1,0,1],[0,1,0,1],[0,0,0,0]]
 
 Output: [[0,0,1,1],[0,0,1,1],[1,1,1,1],[0,0,1,1],[0,0,0,0]]
-
-
+```
 

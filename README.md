@@ -35,3 +35,9 @@ Example :
       
        pip3 install pygame
 
+## Usage
+
+1. Execute the python code using the below command
+
+       python3 main.py
+

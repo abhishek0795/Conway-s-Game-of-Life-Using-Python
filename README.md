@@ -55,10 +55,16 @@ Execute the python code using the below command
 
        Pause the game if you want to stop the game in between.
 
+<img src="./Output_Images/Step-2.png" alt="step-2">
+
 ### Step 3:
 
        Resume the game if you want to again start the game.
 
+<img src="./Output_Images/Step-3.png" alt="step-3">
+
 ### Step 4:
 
        Reset the game if you want to play the game from beginning.
+
+<img src="./Output_Images/Step-4.png" alt="step-4">

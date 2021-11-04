@@ -1,10 +1,12 @@
 # Conway's Game of Life Using Python
 
-## Project Description
+## Game Description
 
 According to Wikipedia's article: "The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
 
 The board is made up of an m x n grid of cells, where each cell has an initial state: live (represented by a 1) or dead (represented by a 0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rules (taken from the above Wikipedia article):
+
+## Rules of the Game
 
       1. Any live cell with fewer than two live neighbors dies as if caused by under-population.
 
@@ -43,3 +45,20 @@ Execute the python code using the below command
 
 ## Sample outputs
 
+### Step 1 :
+
+       Run the game after clicking the button on different grid boxes by making different patterns.
+
+<img src="Output/Step-1.png" alt="step-1">
+
+### Step 2:
+
+       Pause the game if you want to stop the game in between.
+
+### Step 3:
+
+       Resume the game if you want to again start the game.
+
+### Step 4:
+
+       Reset the game if you want to play the game from beginning.

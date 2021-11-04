@@ -29,4 +29,9 @@ Example :
 
 1. Clone the repository and navigate to `Conways-Game-of-Life-Using-Python` directory.
 
-      git clone https://github.com/abhishek0795/Conways-Game-of-Life-Using-Python.git
+       git clone https://github.com/abhishek0795/Conways-Game-of-Life-Using-Python.git
+
+2. Install the required python module.
+      
+       pip3 install pygame
+

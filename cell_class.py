@@ -25,8 +25,7 @@ class Cell:
         self.surface.blit(self.image, (self.grid_x * 20, self.grid_y * 20))
 
     def get_neighbours(self, grid):
-        neighbour_list = [[1, 1], [-1, -1], [-1, 1], [1, -1], [0, -1], [0, 1],
-                          [1, 0], [-1, 0]]
+        neighbour_list = [[1, 1], [-1, -1], [-1, 1], [1, -1], [0, -1], [0, 1],[1, 0], [-1, 0]]
         for neighbour in neighbour_list:
             neighbour[0] += self.grid_x
             neighbour[1] += self.grid_y

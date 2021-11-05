@@ -175,7 +175,7 @@ while running:
     pygame.display.update()
     clock.tick(FPS)
 
-""" Quit the game at the end and exit """
+""" Quit the game at the end and get exit """
 
 pygame.quit()
 sys.exit()

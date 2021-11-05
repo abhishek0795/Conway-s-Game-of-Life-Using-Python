@@ -1,5 +1,6 @@
 import pygame, random
 
+"""Creating cell class which helps to create the rectangle image on cell and also check the neighbour cells are alive or not and take decisions """
 
 class Cell:
     def __init__(self, surface, grid_x, grid_y):

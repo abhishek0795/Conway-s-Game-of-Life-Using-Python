@@ -11,7 +11,6 @@ FPS = 60
 
 #<------------------------SETTING FUNCTIONS--------------------->
 
-
 def get_events():
     global running
     for event in pygame.event.get():
@@ -25,7 +24,6 @@ def get_events():
                 for button in buttons:
                     button.click()
 
-
 def update():
     game_window.update()
     for button in buttons:
@@ -38,9 +36,7 @@ def draw():
         button.draw()
     game_window.draw()
 
-
 #<------------------------RUNNING FUNCTIONS--------------------->
-
 
 def running_get_events():
     global running
@@ -70,9 +66,7 @@ def running_draw():
         button.draw()
     game_window.draw()
 
-
 #<------------------------PAUSED FUNCTIONS--------------------->
-
 
 def paused_get_events():
     global running

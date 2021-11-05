@@ -2,6 +2,7 @@ import pygame
 
 vec = pygame.math.Vector2
 
+""" Creating button class with required settings when events happen after clicking on buttons """
 
 class Button:
     def __init__(self, surface, x, y, width, height, state='', id='', function=0, colour=(255, 255, 255), hover_colour=(255, 255, 255), border=True, border_width=2, border_colour=(0, 0, 0), text='', font_name='arial', text_size=20, text_colour=(0, 0, 0), bold_text=False):
@@ -31,6 +32,8 @@ class Button:
         self.hovered = False
         self.showing = True
 
+    """ Update function to update the game state when mouse hovering happens on different position """
+
     def update(self, position, game_state=''):
         if self.mouse_hovering(position):
             self.hovered = True
@@ -44,6 +47,8 @@ class Button:
             else:
                 self.showing = False
 
+    """ Draw function to draw the rectangle on different grid cells """
+    
     def draw(self):
         if self.showing:
             if self.border:
@@ -60,6 +65,8 @@ class Button:
                 self.show_text()
             self.surface.blit(self.image, self.position)
 
+    """ Click function to check whether the click or hovering events happen on buttons """
+    
     def click(self):
         if self.function != 0 and self.hovered:
             self.function()

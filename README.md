@@ -55,7 +55,7 @@ Execute the python code using the below command
 
        Click on Pause button if you want to hold the game in between.
 
-<img src="./Output_Images/Step-2.png" alt="step-2">
+<img src="./Output_Images/Step-2.png" alt="step-2" align="center">
 
 ### Step 3:
 

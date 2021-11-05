@@ -66,10 +66,12 @@ class Button:
             self.surface.blit(self.image, self.position)
 
     """ Click function to check whether the click or hovering events happen on buttons """
-    
+
     def click(self):
         if self.function != 0 and self.hovered:
             self.function()
+    
+    """ Show text function to set the font size and text colour of the text buttons"""
 
     def show_text(self):
         font = pygame.font.SysFont(self.font_name, self.text_size, bold=self.bold_text)
@@ -78,6 +80,8 @@ class Button:
         x, y = self.width // 2 - (size[0] // 2), self.height // 2 - (size[1] // 2)
         position = vec(x, y)
         self.image.blit(text, position)
+
+    """ Mouse hovering function to check the hovering events based on the cursor position"""
 
     def mouse_hovering(self, position):
         if self.showing:

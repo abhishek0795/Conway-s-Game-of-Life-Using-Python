@@ -4,6 +4,7 @@ from cell_class import *
 
 vec = pygame.math.Vector2
 
+""" Creating Game window class from where the actual game will be play """
 
 class Game_window:
     def __init__(self, screen, x, y):
@@ -20,11 +21,15 @@ class Game_window:
             for cell in row:
                 cell.get_neighbours(self.grid)
 
+    """ Update function to update the rectangle position on different grid cells """
+
     def update(self):
         self.rectangle.topleft = self.position
         for row in self.grid:
             for cell in row:
                 cell.update()
+    
+    """ Draw function to draw the rectangle image on grid cells with the help of pygame.Surface() """
 
     def draw(self):
         self.image.fill((102, 102, 102))
@@ -33,6 +38,8 @@ class Game_window:
                 cell.draw()
         self.screen.blit(self.image, (self.position.x, self.position.y))
 
+    """ Reset grid function to reset the grid when a user click on reset button """
+
     def reset_grid(self):
         self.grid = [[Cell(self.image, x, y) for x in range(self.cols)]
                      for y in range(self.rows)]
@@ -40,6 +47,8 @@ class Game_window:
             for cell in row:
                 cell.get_neighbours(self.grid)
 
+    """ Evalute function for Implementing conway's game of life rules """
+    
     def evaluate(self):
         new_grid = copy.copy(self.grid)
         for row in self.grid:

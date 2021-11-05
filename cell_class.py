@@ -1,6 +1,6 @@
-import pygame, random
+import pygame
 
-"""Creating cell class which helps to create the rectangle image on cell and also check the neighbour cells are alive or not and take decisions """
+""" Creating cell class which helps to create the rectangle image on cell and also check the neighbour cells are alive or not and take decisions """
 
 class Cell:
     def __init__(self, surface, grid_x, grid_y):
@@ -12,18 +12,21 @@ class Cell:
         self.reactangle = self.image.get_rect()
         self.neighbours = []
         self.alive_neighbours = 0
-        self.colour = (0, 0, 0)
 
     def update(self):
         self.reactangle.topleft = (self.grid_x * 20, self.grid_y * 20)
+    
+    """ Draw function helps to draw the rectangle image and filling the colour if cell is alive """
 
     def draw(self):
         if self.alive:
-            self.image.fill(self.colour)
+            self.image.fill((0,0,0))
         else:
             self.image.fill((0, 0, 0))
             pygame.draw.rect(self.image, (255, 255, 255), (1, 1, 18, 18))
         self.surface.blit(self.image, (self.grid_x * 20, self.grid_y * 20))
+
+    """ Get neighbours function helps to identify the neighbours of each grid cells """
 
     def get_neighbours(self, grid):
         neighbour_list = [[1, 1], [-1, -1], [-1, 1], [1, -1], [0, -1], [0, 1],[1, 0], [-1, 0]]
@@ -45,6 +48,8 @@ class Cell:
             except:
                 print(neighbour)
 
+    """ Live neighbours function checks whether the neighbours of grid cells are alive or not """
+
     def live_neighbours(self):
         count = 0
         for neighbour in self.neighbours:
@@ -52,9 +57,3 @@ class Cell:
                 count += 1
         self.alive_neighbours = count
 
-    def set_colour(self):
-        for cell in self.neighbours:
-            if cell.colour != (0, 0, 0):
-                self.colour = cell.colour
-            else:
-                self.colour = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))

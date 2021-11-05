@@ -2,7 +2,7 @@ import pygame
 
 vec = pygame.math.Vector2
 
-""" Creating button class with required settings when events happen after clicking on buttons """
+""" Creating button class with required settings when events happen after clicking on buttons. """
 
 class Button:
     def __init__(self, surface, x, y, width, height, state='', id='', function=0, colour=(255, 255, 255), hover_colour=(255, 255, 255), border=True, border_width=2, border_colour=(0, 0, 0), text='', font_name='arial', text_size=20, text_colour=(0, 0, 0), bold_text=False):
@@ -32,7 +32,7 @@ class Button:
         self.hovered = False
         self.showing = True
 
-    """ Update function to update the game state when mouse hovering happens on different position """
+    """ Update function to update the game state when mouse hovering happens on different position. """
 
     def update(self, position, game_state=''):
         if self.mouse_hovering(position):
@@ -47,7 +47,7 @@ class Button:
             else:
                 self.showing = False
 
-    """ Draw function to draw the rectangle on different grid cells """
+    """ Draw function to draw the rectangle on different grid cells. """
     
     def draw(self):
         if self.showing:
@@ -65,13 +65,13 @@ class Button:
                 self.show_text()
             self.surface.blit(self.image, self.position)
 
-    """ Click function to check whether the click or hovering events happen on buttons """
+    """ Click function to check whether the click or hovering events happen on buttons. """
 
     def click(self):
         if self.function != 0 and self.hovered:
             self.function()
     
-    """ Show text function to set the font size and text colour of the text buttons"""
+    """ Show text function to set the font size and text colour of the text buttons. """
 
     def show_text(self):
         font = pygame.font.SysFont(self.font_name, self.text_size, bold=self.bold_text)
@@ -81,7 +81,7 @@ class Button:
         position = vec(x, y)
         self.image.blit(text, position)
 
-    """ Mouse hovering function to check the hovering events based on the cursor position"""
+    """ Mouse hovering function to check the hovering events based on the cursor position. """
 
     def mouse_hovering(self, position):
         if self.showing:

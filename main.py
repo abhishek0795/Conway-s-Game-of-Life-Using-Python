@@ -3,7 +3,8 @@ import sys
 from game_window_class import *
 from button_class import *
 
-""" Pygame display settings """
+""" Pygame display settings. """
+
 WIDTH, HEIGHT = 800, 800
 BACKGROUND = (199, 199, 199)
 FPS = 60

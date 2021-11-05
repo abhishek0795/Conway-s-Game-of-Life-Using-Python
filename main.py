@@ -3,6 +3,7 @@ import sys
 from game_window_class import *
 from button_class import *
 
+""" Pygame display settings """
 WIDTH, HEIGHT = 800, 800
 BACKGROUND = (199, 199, 199)
 FPS = 60
@@ -98,6 +99,7 @@ def paused_draw():
         button.draw()
     game_window.draw()
 
+""" Calculating the mouse position """
 
 def mouse_on_grid(position):
     if position[0] > 100 and position[0] < WIDTH - 100:
@@ -105,6 +107,7 @@ def mouse_on_grid(position):
             return True
     return False
 
+""" Calculating the clicking events on grid of cells position """
 
 def click_cell(position):
     grid_position = [position[0] - 100, position[1] - 180]
@@ -115,6 +118,7 @@ def click_cell(position):
     else:
         game_window.grid[grid_position[1]][grid_position[0]].alive = True
 
+""" Calculating and creating the different buttons with respect to position from the size of the window """
 
 def make_buttons():
     buttons = []
@@ -125,6 +129,7 @@ def make_buttons():
 
     return buttons
 
+""" Different state of the game that is running, stop and reset """
 
 def run_game():
     global state
@@ -141,6 +146,7 @@ def reset_grid():
     state = 'setting'
     game_window.reset_grid()
 
+""" Intializing the game and set the display setting, clock, buttons, state and frame count """
 
 pygame.init()
 window = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -168,5 +174,8 @@ while running:
         paused_draw()
     pygame.display.update()
     clock.tick(FPS)
+
+""" Quit the game at the end and exit """
+
 pygame.quit()
 sys.exit()

@@ -47,7 +47,7 @@ Execute the python code using the below command
 
 ### Step 1 :
 
-       Run the game after clicking the button on different grid boxes by making different patterns.
+       Run the game after clicking the button on grid boxes by making different patterns.
 
 <img src="./Output_Images/Step-1.png" alt="step-1">
 

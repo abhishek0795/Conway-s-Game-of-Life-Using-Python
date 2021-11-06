@@ -5,17 +5,18 @@ from button_class import *
 
 """ Pygame display settings. """
 
-WIDTH, HEIGHT = 800, 800
-BACKGROUND = (199, 199, 199)
-FPS = 60
+WIDTH, HEIGHT = 800, 800  # Setting width and height of the pygame window
+BACKGROUND = (199, 199, 199)  # Setting pygame window background colour
+FPS = 60  # Setting speed of the game play
+pygame.display.set_caption("Conway's  Game  of  Life")  # Setting caption of the game 
 
 #<------------------------SETTING FUNCTIONS--------------------->
 
 def get_events():
     try:
         global running
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in pygame.event.get(): # fetching all the events occurs previously one by one from (pygame.event.get()) method.
+            if event.type == pygame.QUIT: 
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_position = pygame.mouse.get_pos()
@@ -44,7 +45,7 @@ def draw():
 def running_get_events():
     try:
         global running
-        for event in pygame.event.get():
+        for event in pygame.event.get():  # fetching all the events occurs previously one by one from (pygame.event.get()) method.
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -79,7 +80,7 @@ def running_draw():
 def paused_get_events():
     try:
         global running
-        for event in pygame.event.get():
+        for event in pygame.event.get(): # fetching all the events occurs previously one by one from (pygame.event.get()) method.
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -160,10 +161,10 @@ def reset_grid():
 """ Intializing the game and set the display setting, clock, buttons, state and frame count. """
 
 pygame.init()
-window = pygame.display.set_mode((WIDTH, HEIGHT))
-clock = pygame.time.Clock()
-game_window = Game_window(window, 100, 180)
-buttons = make_buttons()
+window = pygame.display.set_mode((WIDTH, HEIGHT)) # Display setting of the pygame window.
+clock = pygame.time.Clock() # Create an object to help track time.
+game_window = Game_window(window, 100, 180) # Rectangle size window drwan from where the actual game will be played.
+buttons = make_buttons() 
 state = 'setting'
 frame_count = 0
 
@@ -183,10 +184,10 @@ while running:
         paused_get_events()
         paused_update()
         paused_draw()
-    pygame.display.update()
-    clock.tick(FPS)
+    pygame.display.update() # Always update the pygame display window whenever new things added to the game.
+    clock.tick(FPS) # Controlling speed of the game play.
 
 """ Quit the game at the end and get exit. """
 
-pygame.quit()
+pygame.quit() 
 sys.exit()

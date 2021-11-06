@@ -2,21 +2,20 @@ import pygame
 import copy
 from cell_class import *
 
-vec = pygame.math.Vector2
+vector = pygame.math.Vector2  # Two-Dimensional vector.
 
 """ Creating Game window class from where the actual game will be play. """
 
 class Game_window:
-    def __init__(self, screen, x, y):
-        self.screen = screen
-        self.position = vec(x, y)
-        self.width, self.height = 600, 600
-        self.image = pygame.Surface((self.width, self.height))
-        self.rectangle = self.image.get_rect()
-        self.rows = 30
-        self.cols = 30
-        self.grid = [[Cell(self.image, x, y) for x in range(self.cols)]
-                     for y in range(self.rows)]
+    def __init__(self, screen, x, y): # Initializing the variables.
+        self.screen = screen  # Initializing the game window screen.
+        self.position = vector(x, y)  # Intializing the vector passed through the init function.
+        self.width, self.height = 600, 600 # Setting width and height of the game window.
+        self.image = pygame.Surface((self.width, self.height))  # Helps to draw one image onto another of game surface window.
+        self.rectangle = self.image.get_rect() # Drawing the rectangle image onto game window screen.
+        self.rows = 30 # Number of grid rows to be drawn on the game window.
+        self.cols = 30 # Number of grid colums to be drawn on the game window.
+        self.grid = [[Cell(self.image, x, y) for x in range(self.cols)] for y in range(self.rows)] # Storing grid values by calculating x and y coordinate values based on given range of rows and columns and passing to the cell class.
         for row in self.grid:
             for cell in row:
                 cell.get_neighbours(self.grid)
@@ -36,7 +35,7 @@ class Game_window:
         for row in self.grid:
             for cell in row:
                 cell.draw()
-        self.screen.blit(self.image, (self.position.x, self.position.y))
+        self.screen.blit(self.image, (self.position.x, self.position.y)) # Draw the rectangle image of the game window.
 
     """ Reset grid function to reset the grid when a user click on reset button. """
 

@@ -3,12 +3,12 @@ import pygame
 """ Creating cell class which helps to create the rectangle image on cell and also check the neighbour cells are alive or not and take decisions. """
 
 class Cell:
-    def __init__(self, surface, grid_x, grid_y):
-        self.alive = False
+    def __init__(self, surface, grid_x, grid_y): #Intializing the variables.
+        self.alive = False               
         self.surface = surface
         self.grid_x = grid_x
         self.grid_y = grid_y
-        self.image = pygame.Surface((20, 20))
+        self.image = pygame.Surface((20, 20))  # Size of the each grid cells.
         self.reactangle = self.image.get_rect()
         self.neighbours = []
         self.alive_neighbours = 0
@@ -21,11 +21,11 @@ class Cell:
     def draw(self):
         try:
             if self.alive:
-                self.image.fill((0,0,0))
+                self.image.fill((0,0,0)) 
             else:
                 self.image.fill((0, 0, 0))
-                pygame.draw.rect(self.image, (255, 255, 255), (1, 1, 18, 18))
-            self.surface.blit(self.image, (self.grid_x * 20, self.grid_y * 20))
+                pygame.draw.rect(self.image, (255, 255, 255), (1, 1, 18, 18)) # Filling the cell colour and setting border width.
+            self.surface.blit(self.image, (self.grid_x * 20, self.grid_y * 20)) # Draw the rectangle image on the grid cells.
         except(Exception):
             print("Exception: ", Exception)
 

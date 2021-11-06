@@ -1,6 +1,6 @@
 import pygame
 
-vec = pygame.math.Vector2
+vector = pygame.math.Vector2
 
 """ Creating button class with required settings when events happen after clicking on buttons. """
 
@@ -9,7 +9,7 @@ class Button:
         self.type = 'button'
         self.x = x
         self.y = y
-        self.position = vec(x, y)
+        self.position = vector(x, y)
         self.width = width
         self.height = height
         self.surface = surface
@@ -70,7 +70,7 @@ class Button:
 
                 if len(self.text) > 0:
                     self.show_text()
-                self.surface.blit(self.image, self.position)
+                self.surface.blit(self.image, self.position) # Draw the rectangle image of the buttons icon
         except(Exception):
             print("Exception: ", Exception)
 
@@ -90,8 +90,8 @@ class Button:
         text = font.render(self.text, False, self.text_colour)
         size = text.get_size()
         x, y = self.width // 2 - (size[0] // 2), self.height // 2 - (size[1] // 2)
-        position = vec(x, y)
-        self.image.blit(text, position)
+        position = vector(x, y)
+        self.image.blit(text, position)   # Draw the rectangle image on the grid cells
 
     """ Mouse hovering function to check the hovering events based on the cursor position. """
 

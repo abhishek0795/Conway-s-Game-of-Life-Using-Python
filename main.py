@@ -12,17 +12,20 @@ FPS = 60
 #<------------------------SETTING FUNCTIONS--------------------->
 
 def get_events():
-    global running
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_position = pygame.mouse.get_pos()
-            if mouse_on_grid(mouse_position):
-                click_cell(mouse_position)
-            else:
-                for button in buttons:
-                    button.click()
+    try:
+        global running
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_position = pygame.mouse.get_pos()
+                if mouse_on_grid(mouse_position):
+                    click_cell(mouse_position)
+                else:
+                    for button in buttons:
+                        button.click()
+    except(Exception) :
+        print("Exception occurs in handling mouse event: ", Exception)
 
 def update():
     game_window.update()
@@ -39,25 +42,30 @@ def draw():
 #<------------------------RUNNING FUNCTIONS--------------------->
 
 def running_get_events():
-    global running
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_position = pygame.mouse.get_pos()
-            if mouse_on_grid(mouse_position):
-                click_cell(mouse_position)
-            else:
-                for button in buttons:
-                    button.click()
-
+    try:
+        global running
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_position = pygame.mouse.get_pos()
+                if mouse_on_grid(mouse_position):
+                    click_cell(mouse_position)
+                else:
+                    for button in buttons:
+                        button.click()
+    except(Exception):
+        print("Exception occurs in handling mouse event: ", Exception)
 
 def running_update():
     game_window.update()
     for button in buttons:
         button.update(mouse_position, game_state=state)
-    if frame_count % (FPS // 10) == 0:
-        game_window.evaluate()
+    try:
+        if frame_count % (FPS // 10) == 0:
+            game_window.evaluate()
+    except ValueError as e:
+        print("Number is not divisible by FPS: ", e)
 
 
 def running_draw():
@@ -69,18 +77,20 @@ def running_draw():
 #<------------------------PAUSED FUNCTIONS--------------------->
 
 def paused_get_events():
-    global running
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_position = pygame.mouse.get_pos()
-            if mouse_on_grid(mouse_position):
-                click_cell(mouse_position)
-            else:
-                for button in buttons:
-                    button.click()
-
+    try:
+        global running
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_position = pygame.mouse.get_pos()
+                if mouse_on_grid(mouse_position):
+                    click_cell(mouse_position)
+                else:
+                    for button in buttons:
+                        button.click()
+    except(Exception):
+        print("Exception occurs in handling mouse event: ", Exception)
 
 def paused_update():
     game_window.update()
@@ -97,10 +107,13 @@ def paused_draw():
 """ Calculating the mouse position. """
 
 def mouse_on_grid(position):
-    if position[0] > 100 and position[0] < WIDTH - 100:
-        if position[1] > 100 and position[1] < HEIGHT - 20:
-            return True
-    return False
+    try:
+        if position[0] > 100 and position[0] < WIDTH - 100:
+            if position[1] > 100 and position[1] < HEIGHT - 20:
+                return True
+        return False
+    except(Exception):
+        print("Exception: ", Exception)
 
 """ Calculating the clicking events on grid of cells position. """
 
@@ -108,10 +121,13 @@ def click_cell(position):
     grid_position = [position[0] - 100, position[1] - 180]
     grid_position[0] = grid_position[0] // 20
     grid_position[1] = grid_position[1] // 20
-    if game_window.grid[grid_position[1]][grid_position[0]].alive:
-        game_window.grid[grid_position[1]][grid_position[0]].alive = False
-    else:
-        game_window.grid[grid_position[1]][grid_position[0]].alive = True
+    try:
+        if game_window.grid[grid_position[1]][grid_position[0]].alive:
+            game_window.grid[grid_position[1]][grid_position[0]].alive = False
+        else:
+            game_window.grid[grid_position[1]][grid_position[0]].alive = True
+    except(Exception):
+        print("Exception: ", Exception)
 
 """ Calculating and creating the different buttons with respect to position from the size of the window. """
 

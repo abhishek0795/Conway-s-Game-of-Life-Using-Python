@@ -19,12 +19,15 @@ class Cell:
     """ Draw function helps to draw the rectangle image and filling the colour if cell is alive. """
 
     def draw(self):
-        if self.alive:
-            self.image.fill((0,0,0))
-        else:
-            self.image.fill((0, 0, 0))
-            pygame.draw.rect(self.image, (255, 255, 255), (1, 1, 18, 18))
-        self.surface.blit(self.image, (self.grid_x * 20, self.grid_y * 20))
+        try:
+            if self.alive:
+                self.image.fill((0,0,0))
+            else:
+                self.image.fill((0, 0, 0))
+                pygame.draw.rect(self.image, (255, 255, 255), (1, 1, 18, 18))
+            self.surface.blit(self.image, (self.grid_x * 20, self.grid_y * 20))
+        except(Exception):
+            print("Exception: ", Exception)
 
     """ Get neighbours function helps to identify the neighbours of each grid cells. """
 
@@ -34,14 +37,17 @@ class Cell:
             neighbour[0] += self.grid_x
             neighbour[1] += self.grid_y
         for neighbour in neighbour_list:
-            if neighbour[0] < 0:
-                neighbour[0] += 30
-            if neighbour[1] < 0:
-                neighbour[1] += 30
-            if neighbour[1] > 29:
-                neighbour[1] -= 30
-            if neighbour[0] > 29:
-                neighbour[0] -= 30
+            try:
+                if neighbour[0] < 0:
+                    neighbour[0] += 30
+                if neighbour[1] < 0:
+                    neighbour[1] += 30
+                if neighbour[1] > 29:
+                    neighbour[1] -= 30
+                if neighbour[0] > 29:
+                    neighbour[0] -= 30
+            except(Exception):
+                print("Exception: ",Exception)
         for neighbour in neighbour_list:
             try:
                 self.neighbours.append(grid[neighbour[1]][neighbour[0]])
@@ -53,7 +59,11 @@ class Cell:
     def live_neighbours(self):
         count = 0
         for neighbour in self.neighbours:
-            if neighbour.alive:
-                count += 1
+            try:
+                if neighbour.alive:
+                    count += 1
+            except(Exception):
+                print("Exception: ",Exception)
+
         self.alive_neighbours = count
 

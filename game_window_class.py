@@ -57,16 +57,18 @@ class Game_window:
 
         for yidx, row in enumerate(self.grid):
             for xidx, cell in enumerate(row):
-                if cell.alive:
-                    if cell.alive_neighbours == 2 and cell.alive_neighbours == 3:
-                        new_grid[yidx][xidx].alive = True
-                    if cell.alive_neighbours < 2:
-                        new_grid[yidx][xidx].alive = False
-                    if cell.alive_neighbours > 3:
-                        new_grid[yidx][xidx].alive = False
-                else:
-                    if cell.alive_neighbours == 3:
-                        new_grid[yidx][xidx].alive = True
+                try:
+                    if cell.alive:
+                        if cell.alive_neighbours == 2 and cell.alive_neighbours == 3:
+                            new_grid[yidx][xidx].alive = True
+                        if cell.alive_neighbours < 2:
+                            new_grid[yidx][xidx].alive = False
+                        if cell.alive_neighbours > 3:
+                            new_grid[yidx][xidx].alive = False
+                    else:
+                        if cell.alive_neighbours == 3:
+                            new_grid[yidx][xidx].alive = True
+                except(Exception):
+                    print("Exception: ", Exception)
 
-    
         self.grid = new_grid

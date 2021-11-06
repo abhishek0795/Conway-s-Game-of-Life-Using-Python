@@ -35,42 +35,54 @@ class Button:
     """ Update function to update the game state when mouse hovering happens on different position. """
 
     def update(self, position, game_state=''):
-        if self.mouse_hovering(position):
-            self.hovered = True
-        else:
-            self.hovered = False
-        if self.state == '' or game_state == '':
-            self.showing = True
-        else:
-            if self.state == game_state:
+        try:
+            if self.mouse_hovering(position):
+                self.hovered = True
+            else:
+                self.hovered = False
+        except(Exception):
+            print("Exception occurs in handling mouse event: ", Exception)
+        try:
+            if self.state == '' or game_state == '':
                 self.showing = True
             else:
-                self.showing = False
+                if self.state == game_state:
+                    self.showing = True
+                else:
+                    self.showing = False
+        except(Exception):
+            print("Exception: ", Exception)
 
     """ Draw function to draw the rectangle on different grid cells. """
     
     def draw(self):
-        if self.showing:
-            if self.border:
-                self.image.fill(self.border_colour)
-                if self.hovered:
-                    pygame.draw.rect(self.image, self.hover_colour, (self.border_width, self.border_width, self.width - (self.border_width * 2), self.height - (self.border_width * 2)))
+        try:
+            if self.showing:
+                if self.border:
+                    self.image.fill(self.border_colour)
+                    if self.hovered:
+                        pygame.draw.rect(self.image, self.hover_colour, (self.border_width, self.border_width, self.width - (self.border_width * 2), self.height - (self.border_width * 2)))
+                    else:
+                        pygame.draw.rect(self.image, self.colour, (self.border_width, self.border_width, self.width - (self.border_width * 2), self.height - (self.border_width * 2)))
+
                 else:
-                    pygame.draw.rect(self.image, self.colour, (self.border_width, self.border_width, self.width - (self.border_width * 2), self.height - (self.border_width * 2)))
+                    self.image.fill(self.colour)
 
-            else:
-                self.image.fill(self.colour)
-
-            if len(self.text) > 0:
-                self.show_text()
-            self.surface.blit(self.image, self.position)
+                if len(self.text) > 0:
+                    self.show_text()
+                self.surface.blit(self.image, self.position)
+        except(Exception):
+            print("Exception: ", Exception)
 
     """ Click function to check whether the click or hovering events happen on buttons. """
 
     def click(self):
-        if self.function != 0 and self.hovered:
-            self.function()
-    
+        try:
+            if self.function != 0 and self.hovered:
+                self.function()
+        except(Exception):
+            print("Exception: ", Exception)
+
     """ Show text function to set the font size and text colour of the text buttons. """
 
     def show_text(self):
@@ -84,11 +96,14 @@ class Button:
     """ Mouse hovering function to check the hovering events based on the cursor position. """
 
     def mouse_hovering(self, position):
-        if self.showing:
-            if position[0] > self.position[0] and position[0] < self.position[0] + self.width:
-                if position[1] > self.position[1] and position[1] < self.position[1] + self.height:
-                    return True
-                else:
-                    return False
-        else:
-            return False
+        try:
+            if self.showing:
+                if position[0] > self.position[0] and position[0] < self.position[0] + self.width:
+                    if position[1] > self.position[1] and position[1] < self.position[1] + self.height:
+                        return True
+                    else:
+                        return False
+            else:
+                return False
+        except(Exception):
+            print("Exception: ", Exception)

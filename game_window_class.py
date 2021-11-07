@@ -1,4 +1,4 @@
-""" game window class of the program """
+""" Game Window class of the program """
 
 import pygame  # importing the pygame module.
 import copy   # importing shallow and deep copy operations module.

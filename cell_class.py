@@ -1,4 +1,6 @@
-import pygame
+""" Cell class of the program """
+
+import pygame  # importing the pygame module.
 
 """ Creating cell class which helps to create the rectangle image on cell and also check the neighbour cells are alive or not and take decisions. """
 

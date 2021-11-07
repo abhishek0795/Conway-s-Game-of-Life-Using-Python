@@ -21,7 +21,7 @@ pygame.display.set_caption("Conway's  Game  of  Life")  # Setting caption of the
 
 def get_events(): # Initial state of the game which will set all the necessary events to play the game.
     try:
-        global running
+        global running # Intializing the global variable
         for event in pygame.event.get(): # Fetching all the events occurs previously one by one from (pygame.event.get()) method.
             if event.type == pygame.QUIT: # When the cancel button get clicked the running state of the fame window get closed.
                 running = False
@@ -51,7 +51,7 @@ def draw(): # Drawing the image onto the game window.
 
 def running_get_events():  # Running state of the game when events get called.
     try:
-        global running
+        global running # Intializing the global variable
         for event in pygame.event.get():  
             if event.type == pygame.QUIT:
                 running = False
@@ -86,7 +86,7 @@ def running_draw():  # Drawing the image onto the game window in running state.
 
 def paused_get_events():  # Paused state of the game when events get called.
     try:
-        global running
+        global running # Intializing the global variable
         for event in pygame.event.get(): 
             if event.type == pygame.QUIT:
                 running = False
@@ -151,17 +151,17 @@ def make_buttons(): # Creating buttons on the pygame window
 """ Different state of the game that is running, stop and reset. """
 
 def run_game(): # Create run game function and changed the state to running mode.
-    global state
+    global state  # Intializing the global variable
     state = 'running'
 
 
 def pause_game(): # Create pause game function and changed the state to paused mode.
-    global state
+    global state # Intializing the global variable
     state = 'paused'
 
 
 def reset_grid(): # Create reset game function and changed the state to original mode.
-    global state
+    global state # Intializing the global variable
     state = 'setting'
     game_window.reset_grid()
 

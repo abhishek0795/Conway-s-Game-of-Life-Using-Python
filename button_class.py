@@ -2,7 +2,7 @@
 
 import pygame # importing the pygame module.
 
-vector = pygame.math.Vector2
+vector = pygame.math.Vector2 # It will store the 2-Dimensional vector
 
 """ Creating button class with required settings when events happen after clicking on buttons. """
 

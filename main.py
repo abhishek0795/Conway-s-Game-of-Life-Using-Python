@@ -5,36 +5,36 @@ from button_class import *
 
 """ Pygame display settings. """
 
-WIDTH, HEIGHT = 800, 800  # Setting width and height of the pygame window
-BACKGROUND = (199, 199, 199)  # Setting pygame window background colour
-FPS = 60  # Setting speed of the game play
-pygame.display.set_caption("Conway's  Game  of  Life")  # Setting caption of the game 
+WIDTH, HEIGHT = 800, 800  # Setting width and height of the pygame window.
+BACKGROUND = (199, 199, 199)  # Setting pygame window background colour.
+FPS = 60  # Setting speed of the game play.
+pygame.display.set_caption("Conway's  Game  of  Life")  # Setting caption of the game .
 
 #<------------------------SETTING FUNCTIONS--------------------->
 
-def get_events():
+def get_events(): # Initial state of the game which will set all the necessary events to play the game.
     try:
         global running
-        for event in pygame.event.get(): # fetching all the events occurs previously one by one from (pygame.event.get()) method.
-            if event.type == pygame.QUIT: 
+        for event in pygame.event.get(): # Fetching all the events occurs previously one by one from (pygame.event.get()) method.
+            if event.type == pygame.QUIT: # When the cancel button get clicked the running state of the fame window get closed.
                 running = False
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                mouse_position = pygame.mouse.get_pos()
-                if mouse_on_grid(mouse_position):
-                    click_cell(mouse_position)
+            if event.type == pygame.MOUSEBUTTONDOWN: # Identifying the cursor position of the mouse.
+                mouse_position = pygame.mouse.get_pos() # Storing the cursor position of the mouse.
+                if mouse_on_grid(mouse_position): # Passing the mouse position value to check whether button is clicked or not.
+                    click_cell(mouse_position)  # Calling click cell function and passing mouse position value to get the number of click happened in the different cells.
                 else:
                     for button in buttons:
                         button.click()
     except(Exception) :
         print("Exception occurs in handling mouse event: ", Exception)
 
-def update():
+def update(): # Updating the events whenever new events called.
     game_window.update()
     for button in buttons:
         button.update(mouse_position, game_state=state)
 
 
-def draw():
+def draw(): # Drawing the image onto the game window.
     window.fill(BACKGROUND)
     for button in buttons:
         button.draw()
@@ -42,10 +42,10 @@ def draw():
 
 #<------------------------RUNNING FUNCTIONS--------------------->
 
-def running_get_events():
+def running_get_events():  # Running state of the game when events get called.
     try:
         global running
-        for event in pygame.event.get():  # fetching all the events occurs previously one by one from (pygame.event.get()) method.
+        for event in pygame.event.get():  
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -58,7 +58,7 @@ def running_get_events():
     except(Exception):
         print("Exception occurs in handling mouse event: ", Exception)
 
-def running_update():
+def running_update():  # Updating the running events whenever new events called.
     game_window.update()
     for button in buttons:
         button.update(mouse_position, game_state=state)
@@ -69,7 +69,7 @@ def running_update():
         print("Number is not divisible by FPS: ", e)
 
 
-def running_draw():
+def running_draw():  # Drawing the image onto the game window in running state.
     window.fill(BACKGROUND)
     for button in buttons:
         button.draw()
@@ -77,10 +77,10 @@ def running_draw():
 
 #<------------------------PAUSED FUNCTIONS--------------------->
 
-def paused_get_events():
+def paused_get_events():  # Paused state of the game when events get called.
     try:
         global running
-        for event in pygame.event.get(): # fetching all the events occurs previously one by one from (pygame.event.get()) method.
+        for event in pygame.event.get(): 
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -93,13 +93,13 @@ def paused_get_events():
     except(Exception):
         print("Exception occurs in handling mouse event: ", Exception)
 
-def paused_update():
+def paused_update():   # Updating the paused events whenever new events called.
     game_window.update()
     for button in buttons:
         button.update(mouse_position, game_state=state)
 
 
-def paused_draw():
+def paused_draw():  # Drawing the image onto the game window in paused state.
     window.fill(BACKGROUND)
     for button in buttons:
         button.draw()
@@ -107,7 +107,7 @@ def paused_draw():
 
 """ Calculating the mouse position. """
 
-def mouse_on_grid(position): # Calculating the mouse position on the grid cells
+def mouse_on_grid(position): # Calculating the mouse position on the grid cells.
     try:
         if position[0] > 100 and position[0] < WIDTH - 100:
             if position[1] > 100 and position[1] < HEIGHT - 20:
@@ -143,44 +143,44 @@ def make_buttons(): # Creating buttons on the pygame window
 
 """ Different state of the game that is running, stop and reset. """
 
-def run_game():
+def run_game(): # Create run game function and changed the state to running mode.
     global state
     state = 'running'
 
 
-def pause_game():
+def pause_game(): # Create pause game function and changed the state to paused mode.
     global state
     state = 'paused'
 
 
-def reset_grid():
+def reset_grid(): # Create reset game function and changed the state to original mode.
     global state
     state = 'setting'
     game_window.reset_grid()
 
 """ Intializing the game and set the display setting, clock, buttons, state and frame count. """
 
-pygame.init()
+pygame.init() # Starting the game.
 window = pygame.display.set_mode((WIDTH, HEIGHT)) # Display setting of the pygame window.
 clock = pygame.time.Clock() # Create an object to help track time.
 game_window = Game_window(window, 100, 180) # Rectangle size window drwan from where the actual game will be played.
-buttons = make_buttons() 
-state = 'setting'
-frame_count = 0
+buttons = make_buttons()  # Calling the button function.
+state = 'setting' # Setting the state to initial setting mode. 
+frame_count = 0 # The frame rate or refresh rate is the number of pictures that the program draws per second is initialized to 0.
 
-running = True
-while running:
-    frame_count += 1
-    mouse_position = pygame.mouse.get_pos()
-    if state == 'setting':
+running = True # Assigned boolean value to the running variable.
+while running: # Checking the condition if the game is running state then it will perform several tasks.
+    frame_count += 1 # Increamenting the frame count whenever new image get drawn onto the window.
+    mouse_position = pygame.mouse.get_pos() # Get the mouse position value.
+    if state == 'setting': # Checking the state and calling all the function one by one that belongs to setting state.
         get_events()
         update()
         draw()
-    if state == 'running':
+    if state == 'running':  # Checking the state and calling all the function one by one that belongs to running state.
         running_get_events()
         running_update()
         running_draw()
-    if state == 'paused':
+    if state == 'paused':  # Checking the state and calling all the function one by one that belongs to paused state.
         paused_get_events()
         paused_update()
         paused_draw()
@@ -190,4 +190,4 @@ while running:
 """ Quit the game at the end and get exit. """
 
 pygame.quit() 
-sys.exit()
+sys.exit() 

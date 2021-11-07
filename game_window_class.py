@@ -27,16 +27,16 @@ class Game_window:
 
     """ Update function to update the rectangle position on different grid cells. """
 
-    def update(self):
-        self.rectangle.topleft = self.position
+    def update(self): # Updating the events whenever new events called.
+        # self.rectangle.topleft = self.position
         for row in self.grid:
             for cell in row:
                 cell.update()
     
     """ Draw function to draw the rectangle image on grid cells with the help of pygame.Surface() """
 
-    def draw(self):
-        self.image.fill((102, 102, 102))
+    def draw(self): # Drawing the image onto the game window.
+        # self.image.fill((102, 102, 102))
         for row in self.grid:
             for cell in row:
                 cell.draw()
@@ -44,17 +44,16 @@ class Game_window:
 
     """ Reset grid function to reset the grid when a user click on reset button. """
 
-    def reset_grid(self):
-        self.grid = [[Cell(self.image, x, y) for x in range(self.cols)]
-                     for y in range(self.rows)]
+    def reset_grid(self): # Reset the grid when reset function is called.
+        self.grid = [[Cell(self.image, x, y) for x in range(self.cols)] for y in range(self.rows)]
         for row in self.grid:
             for cell in row:
                 cell.get_neighbours(self.grid)
 
     """ Evalute function for Implementing conway's game of life rules. """
     
-    def evaluate(self):
-        new_grid = copy.copy(self.grid)
+    def evaluate(self): # Identifying the neighbours and check the conditions of live state of the grid cells.
+        new_grid = copy.copy(self.grid) # Storing the shallow copy of the grid cells.
         for row in self.grid:
             for cell in row:
                 cell.live_neighbours()

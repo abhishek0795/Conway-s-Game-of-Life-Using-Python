@@ -107,7 +107,7 @@ def paused_draw():
 
 """ Calculating the mouse position. """
 
-def mouse_on_grid(position):
+def mouse_on_grid(position): # Calculating the mouse position on the grid cells
     try:
         if position[0] > 100 and position[0] < WIDTH - 100:
             if position[1] > 100 and position[1] < HEIGHT - 20:
@@ -118,26 +118,26 @@ def mouse_on_grid(position):
 
 """ Calculating the clicking events on grid of cells position. """
 
-def click_cell(position):
-    grid_position = [position[0] - 100, position[1] - 180]
-    grid_position[0] = grid_position[0] // 20
-    grid_position[1] = grid_position[1] // 20
+def click_cell(position): # Check the mouse clicking event on the grid cells and take decision to make it alive the cells or not.
+    grid_position = [position[0] - 100, position[1] - 180] # Calculating the click position in grid cells between x,y directions.
+    grid_position[0] = grid_position[0] // 20 # Calculating the position of the cell in x-direction divided by the cell size of the game window.
+    grid_position[1] = grid_position[1] // 20  # Calculating the position of the cell in y-direction divided by the cell size of the game window.
     try:
-        if game_window.grid[grid_position[1]][grid_position[0]].alive:
+        if game_window.grid[grid_position[1]][grid_position[0]].alive: # Checking the alive state of grid position in x and y direction and make it true if it is in alive state
             game_window.grid[grid_position[1]][grid_position[0]].alive = False
         else:
-            game_window.grid[grid_position[1]][grid_position[0]].alive = True
+            game_window.grid[grid_position[1]][grid_position[0]].alive = True # Checking the alive state of grid position in x and y direction and make it true if it is in dead state
     except(Exception):
         print("Exception: ", Exception)
 
 """ Calculating and creating the different buttons with respect to position from the size of the window. """
 
-def make_buttons():
+def make_buttons(): # Creating buttons on the pygame window 
     buttons = []
-    buttons.append(Button(window, WIDTH // 2 - 50, 50, 100, 30, text='RUN', colour=(28, 111, 51), hover_colour=(48, 131, 81), bold_text=True, function=run_game, state='setting'))
-    buttons.append(Button(window, WIDTH // 2 - 50, 50, 100, 30, text='PAUSE', colour=(18, 104, 135), hover_colour=(51, 168, 212), bold_text=True, function=pause_game, state='running'))
-    buttons.append(Button(window, WIDTH // 4 - 50, 50, 100, 30, text='RESET', colour=(117, 14, 14), hover_colour=(217, 54, 54), bold_text=True, function=reset_grid, state='paused'))
-    buttons.append(Button(window, WIDTH // 1.25 - 50, 50, 100, 30, text='RESUME', colour=(28, 111, 51), hover_colour=(48, 131, 81), bold_text=True, function=run_game, state='paused'))
+    buttons.append(Button(window, WIDTH // 2 - 50, 50, 100, 30, text='RUN', colour=(28, 111, 51), hover_colour=(48, 131, 81), bold_text=True, function=run_game, state='setting')) # Appending 'RUN' button details in the button list.
+    buttons.append(Button(window, WIDTH // 2 - 50, 50, 100, 30, text='PAUSE', colour=(18, 104, 135), hover_colour=(51, 168, 212), bold_text=True, function=pause_game, state='running')) # Appending 'PAUSE' button details in the button list.
+    buttons.append(Button(window, WIDTH // 4 - 50, 50, 100, 30, text='RESET', colour=(117, 14, 14), hover_colour=(217, 54, 54), bold_text=True, function=reset_grid, state='paused')) # Appending 'RESET' button details in the button list.
+    buttons.append(Button(window, WIDTH // 1.25 - 50, 50, 100, 30, text='RESUME', colour=(28, 111, 51), hover_colour=(48, 131, 81), bold_text=True, function=run_game, state='paused')) # Appending 'RESUME' button details in the button list.
 
     return buttons
 

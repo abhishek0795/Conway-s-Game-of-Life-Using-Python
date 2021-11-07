@@ -1,11 +1,11 @@
-                                                """ Game Project: The conway's game of life """
+""" Game Project: The conway's game of life """
 
 """ Main class of the program """
 
 import pygame # importing the pygame module.
-import sys  # importing System-specific parameters and functions module.
+import sys  # importing system-specific parameters and functions module.
 
-""" Importing the required classes  to run this main class """
+""" Importing the required classes to run this main class """
 
 from game_window_class import * 
 from button_class import *

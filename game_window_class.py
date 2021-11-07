@@ -1,5 +1,10 @@
-import pygame
-import copy
+""" game window class of the program """
+
+import pygame  # importing the pygame module.
+import copy   # importing shallow and deep copy operations module.
+
+""" Importing the required classes to run this game window class """
+
 from cell_class import *
 
 vector = pygame.math.Vector2  # Two-Dimensional vector.

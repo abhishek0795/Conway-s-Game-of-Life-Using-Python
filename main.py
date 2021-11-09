@@ -1,4 +1,4 @@
-""" Game Project: The conway's game of life """
+""" Game Project: Conway's Game of Life Using Python """
 
 """ Main class of the program """
 

@@ -53,25 +53,28 @@ Execute the pytest command to run the `game_logic_test.py` file.
 
 <img src="./Output_Images/test_cases_output.png" alt="pytest_result">
 
-### Step 1 :
+### Steps to run the game
+<br />
+
+#### Step 1 :
 
        Run the game after click the button on grid cells by making different patterns.
 
 <img src="./Output_Images/Step-1.png" alt="step-1">
 
-### Step 2:
+#### Step 2:
 
        Click on Pause button if you want to hold the game in between.
 
 <img src="./Output_Images/Step-2.png" alt="step-2">
 
-### Step 3:
+#### Step 3:
 
        Click on Resume button if you want to again start the game.
 
 <img src="./Output_Images/Step-3.png" alt="step-3">
 
-### Step 4:
+#### Step 4:
 
        After clicked on Reset button the game will play from the beginning.
 

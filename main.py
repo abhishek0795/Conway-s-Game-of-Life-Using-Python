@@ -67,7 +67,7 @@ def running_update():  # Updating the running events whenever new events called.
         button.update(mouse_position, game_state=state)
     try:
         if frame_count % (FPS // 10) == 0:
-            game_window.evaluate()
+            game_window.apply_rules()
     except ValueError as e:
         print("Number is not divisible by FPS: ", e)
 

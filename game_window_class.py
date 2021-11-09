@@ -43,8 +43,8 @@ class Game_window:
             for cell in row:
                 cell.get_neighbours(self.grid)
     
-    def evaluate(self): # Identifying the neighbours and check the conditions of live state of the grid cells.
-        """ Evalute function for Implementing conway's game of life rules. """
+    def apply_rules(self): # Identifying the neighbours and check the conditions of live state of the grid cells.
+        """ Apply rules function for Implementing conway's game of life rules. """
         new_grid = copy.copy(self.grid) # Storing the shallow copy of the grid cells.
         for row in self.grid:
             for cell in row:

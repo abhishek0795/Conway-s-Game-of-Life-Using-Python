@@ -4,15 +4,15 @@ import pygame  # importing the pygame module.
 
 class Cell:
     """ Creating cell class which helps to create the rectangle image on cell and also check the neighbour cells are alive or not and take decisions. """
-    def __init__(self, surface, grid_x, grid_y): #Intializing the variables.
-        self.alive = False      # Intializing the live neighbours boolean value to false.         
-        self.surface = surface  # Intializing the surface variable.
-        self.grid_x = grid_x    # Intializing the grid position of x-direction.
+    def __init__(self, surface, grid_x, grid_y): # Initializing the variables.
+        self.alive = False      # Initializing the live neighbours boolean value to false.         
+        self.surface = surface  # Initializing the surface variable.
+        self.grid_x = grid_x    # Initializing the grid position of x-direction.
         self.grid_y = grid_y    # Initializing the grid position of y-direction.
         self.image = pygame.Surface((20, 20))  # Size of the each grid cells.
         self.reactangle = self.image.get_rect() # Calling the rectangle image and storing in the rectangle variable.
-        self.neighbours = [] # Intializing the list of neighbours.
-        self.alive_neighbours = 0 # Intializing the live neighbours count.
+        self.neighbours = [] # Initializing the list of neighbours.
+        self.alive_neighbours = 0 # Initializing the live neighbours count.
 
     def update(self): # Update the grid cells.
         """ Updating the game state whenever new events get called """

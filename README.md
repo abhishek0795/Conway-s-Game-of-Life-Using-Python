@@ -43,6 +43,10 @@ Execute the python code using the below command
 
        python3 main.py
 
+## Test cases result using pytest
+<br>
+<img src="./Output_Images/test_cases_output.png" alt="">
+
 ## Sample outputs
 
 ### Step 1 :
@@ -68,3 +72,6 @@ Execute the python code using the below command
        After clicked on Reset button the game will play from the beginning.
 
 <img src="./Output_Images/Step-4.png" alt="step-4">
+
+
+

@@ -53,8 +53,7 @@ Execute the pytest command to run the `game_logic_test.py` file.
 
 <img src="./Output_Images/test_cases_output.png" alt="pytest_result">
 
-### Steps to run the game 
-<br/>
+### Steps to run the game  <br />
 
 #### Step 1 :
 

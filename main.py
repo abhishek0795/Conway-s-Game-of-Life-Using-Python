@@ -3,12 +3,8 @@
 """ Main class of the program """
 
 import pygame # importing the pygame module.
-import sys  # importing system-specific parameters and functions module.
-
-""" Importing the required classes to run this main class """
-
-from game_window_class import * 
-from button_class import *
+from game_window_class import *  # importing the required classes to run this main class.
+from button_class import * # importing the required classes to run this main class.
 
 """ Pygame display settings. """
 
@@ -112,9 +108,8 @@ def paused_draw():  # Drawing the image onto the game window in paused state.
         button.draw()
     game_window.draw()
 
-""" Calculating the mouse position. """
-
 def mouse_on_grid(position): # Calculating the mouse position on the grid cells.
+    """ Calculating the mouse position. """
     try:
         if position[0] > 100 and position[0] < WIDTH - 100:
             if position[1] > 100 and position[1] < HEIGHT - 20:
@@ -123,9 +118,8 @@ def mouse_on_grid(position): # Calculating the mouse position on the grid cells.
     except(Exception):
         print("Exception: ", Exception)
 
-""" Calculating the clicking events on grid of cells position. """
-
-def click_cell(position): # Check the mouse clicking event on the grid cells and take decision to make it alive the cells or not.
+def click_cell(position): # Check the mouse clicking event on the grid cells and take decision to make it alive the cells or not. 
+    """ Calculating the clicking events on grid of cells position. """
     grid_position = [position[0] - 100, position[1] - 180] # Calculating the click position in grid cells between x,y directions.
     grid_position[0] = grid_position[0] // 20 # Calculating the position of the cell in x-direction divided by the cell size of the game window.
     grid_position[1] = grid_position[1] // 20  # Calculating the position of the cell in y-direction divided by the cell size of the game window.
@@ -137,9 +131,8 @@ def click_cell(position): # Check the mouse clicking event on the grid cells and
     except(Exception):
         print("Exception: ", Exception)
 
-""" Calculating and creating the different buttons with respect to position from the size of the window. """
-
 def make_buttons(): # Creating buttons on the pygame window 
+    """ Calculating and creating the different buttons with respect to position from the size of the window. """
     buttons = []
     buttons.append(Button(window, WIDTH // 2 - 50, 50, 100, 30, text='RUN', colour=(28, 111, 51), hover_colour=(48, 131, 81), bold_text=True, function=run_game, state='setting')) # Appending 'RUN' button details in the button list.
     buttons.append(Button(window, WIDTH // 2 - 50, 50, 100, 30, text='PAUSE', colour=(18, 104, 135), hover_colour=(51, 168, 212), bold_text=True, function=pause_game, state='running')) # Appending 'PAUSE' button details in the button list.
@@ -147,8 +140,6 @@ def make_buttons(): # Creating buttons on the pygame window
     buttons.append(Button(window, WIDTH // 1.25 - 50, 50, 100, 30, text='RESUME', colour=(28, 111, 51), hover_colour=(48, 131, 81), bold_text=True, function=run_game, state='paused')) # Appending 'RESUME' button details in the button list.
 
     return buttons
-
-""" Different state of the game that is running, stop and reset. """
 
 def run_game(): # Create run game function and changed the state to running mode.
     global state  # Intializing the global variable
@@ -164,8 +155,6 @@ def reset_grid(): # Create reset game function and changed the state to original
     global state # Intializing the global variable
     state = 'setting'
     game_window.reset_grid()
-
-""" Intializing the game and set the display setting, clock, buttons, state and frame count. """
 
 pygame.init() # Starting the game.
 window = pygame.display.set_mode((WIDTH, HEIGHT)) # Display setting of the pygame window.
@@ -194,7 +183,4 @@ while running: # Checking the condition if the game is running state then it wil
     pygame.display.update() # Always update the pygame display window whenever new things added to the game.
     clock.tick(FPS) # Controlling speed of the game play.
 
-""" Quit the game at the end and get exit. """
-
-pygame.quit() 
-sys.exit() 
+pygame.quit() # Quit the game

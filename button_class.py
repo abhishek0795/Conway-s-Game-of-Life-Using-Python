@@ -4,9 +4,8 @@ import pygame # importing the pygame module.
 
 vector = pygame.math.Vector2 # It will store the 2-Dimensional vector
 
-""" Creating button class with required settings when events happen after clicking on buttons. """
-
 class Button:
+    """ Creating button class with required settings when events happen after clicking on buttons. """
     def __init__(self, surface, x, y, width, height, state='', id='', function=0, colour=(255, 255, 255), hover_colour=(255, 255, 255), border=True, border_width=2, border_colour=(0, 0, 0), text='', font_name='arial', text_size=20, text_colour=(0, 0, 0), bold_text=False): # Initializing the variables.
         self.type = 'button' 
         self.x = x

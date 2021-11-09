@@ -47,7 +47,7 @@ Execute the python code using the below command
 
 Execute the pytest command to run the `game_logic_test.py` file.
 
-       pytest game_logic_test.py 
+       pytest -vs game_logic_test.py 
 
 <img src="./Output_Images/test_cases_output.png" alt="pytest_result">
 

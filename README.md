@@ -43,15 +43,15 @@ Execute the python code using the below command
 
        python3 main.py
 
-## Test cases result using pytest
-
 Execute the pytest command to run the `game_logic_test.py` file.
 
        pytest -vs game_logic_test.py 
 
-<img src="./Output_Images/test_cases_output.png" alt="pytest_result">
-
 ## Sample outputs
+
+       Test cases result using pytest
+
+<img src="./Output_Images/test_cases_output.png" alt="pytest_result">
 
 ### Step 1 :
 
